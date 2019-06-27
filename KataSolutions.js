@@ -16,3 +16,12 @@ function accum(s) {;
   }
  return newStr.substring(0, newStr.length-1);
 }
+
+/* 6 kyu Arrays Similar / Solution
+https://www.codewars.com/kata/arrays-similar/train/javascript */
+
+function arraysSimilar(arr1, arr2) {
+  arr1 = arr1.sort((a, b) => a - b);
+  arr2 = arr2.sort((a, b) => a - b);
+    return JSON.stringify(arr1) === JSON.stringify(arr2);
+  }
