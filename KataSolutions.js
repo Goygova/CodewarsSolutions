@@ -29,6 +29,7 @@ function arraysSimilar(arr1, arr2) {
 
   /* 8 kyu Check the exam/ Solution
   https://www.codewars.com/kata/check-the-exam/javascript */
+  
   function checkExam(array1, array2) {
 let score = 0;
 for(let i = 0; i < array1.length; i++){
