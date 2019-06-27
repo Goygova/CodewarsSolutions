@@ -25,3 +25,20 @@ function arraysSimilar(arr1, arr2) {
   arr2 = arr2.sort((a, b) => a - b);
     return JSON.stringify(arr1) === JSON.stringify(arr2);
   }
+
+
+  /* 8 kyu Check the exam/ Solution
+  https://www.codewars.com/kata/check-the-exam/javascript */
+  function checkExam(array1, array2) {
+let score = 0;
+for(let i = 0; i < array1.length; i++){
+  if(array1[i] === array2[i]){
+    score += 4;
+  } else if(array2[i] === ''){
+    score += 0;
+  } else {
+    score -= 1;
+  }
+}
+return score < 0 ? 0 : score;
+}
