@@ -73,3 +73,9 @@ function sumR(x) {
   }
 
   
+// 7 kyu Discover The Original Price/Solution//
+//https://www.codewars.com/kata/discover-the-original-price/javascript//
+
+function discoverOriginalPrice(discountedPrice, salePercentage){
+  return +(discountedPrice / (1 - salePercentage / 100)).toFixed(2);
+}
