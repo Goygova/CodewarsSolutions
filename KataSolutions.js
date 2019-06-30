@@ -61,3 +61,15 @@ function switchItUp(number){
     case 9: return "Nine";break;
   }
 }
+
+//7 kyu Get list sum recursively//
+//https://www.codewars.com/kata/57a84137cf1fa5f9f80000d6//
+
+function sumR(x) {
+  if(x.length === 0){
+    return 0;
+  }
+   return x.shift() + sumR(x);
+  }
+
+  
