@@ -79,3 +79,16 @@ function sumR(x) {
 function discoverOriginalPrice(discountedPrice, salePercentage){
   return +(discountedPrice / (1 - salePercentage / 100)).toFixed(2);
 }
+
+// 7 kyu Find the divisors!/Solution//
+//https://www.codewars.com/kata/find-the-divisors/javascript//
+
+function divisors(integer) {
+  let arr = [];
+  for(let i = 2; i < integer; i++){
+    if(integer % i === 0){
+      arr.push(i);
+    }
+  }
+  return arr.length === 0 ? `${integer} is prime` : arr;
+};
