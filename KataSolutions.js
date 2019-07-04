@@ -92,3 +92,44 @@ function divisors(integer) {
   }
   return arr.length === 0 ? `${integer} is prime` : arr;
 };
+
+
+//Find smallest angle (from interview)
+
+console.log(smallest_angle(3, 0));  // 90
+console.log(smallest_angle(6, 0));  // 180
+console.log(smallest_angle(9, 30));  // 90
+console.log(smallest_angle(3, 30)); //
+
+function smallest_angle(a, b){
+//1 hour = 30, 1 min = 6
+let totalDegrees = 360;
+let totalHours = 12;
+let totalMin = 60;
+
+let degreesInHour = totalDegrees / totalHours; // 30
+let degreeInMin = totalDegrees / totalMin // 6
+
+return Math.abs(a * degreesInHour - b * degreeInMin);
+}
+
+//6 kyu Find The Parity Outlier/ Solution//
+//https://www.codewars.com/kata/5526fc09a1bbd946250002dc//
+
+function findOutlier(integers){
+  let oddCount = 0;
+  let evenCount = 0;
+  let oddNum = 0;
+  let evenNum = 0;
+  for(let i = 0; i < integers.length; i++){
+    if(integers[i] % 2 !== 0){
+      oddCount++;
+      oddNum = integers[i];
+    } else {
+      evenCount++;
+      evenNum = integers[i]
+    }
+  }
+   return oddCount > evenCount ? evenNum : oddNum;
+}
+
