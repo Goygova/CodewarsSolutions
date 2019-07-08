@@ -133,3 +133,39 @@ function findOutlier(integers){
    return oddCount > evenCount ? evenNum : oddNum;
 }
 
+//6 kyu Vasya - Clerk/ Solution//
+//https://www.codewars.com/kata/555615a77ebc7c2c8a0000b8//
+
+function tickets(peopleInLine){
+  let bill25 = 0;
+  let bill50 = 0;
+  let bill100 = 0;
+  for(let i = 0; i < peopleInLine.length; i++){
+    switch(peopleInLine[i]){
+      case 25:
+        bill25++;
+        break;
+      case 50:
+        if(bill25 > 0){
+          bill50++;
+          bill25--;
+        }else{
+          return 'NO'
+        }
+        break;
+      case 100:
+        if(bill50 > 0 && bill25 > 0){
+          bill50--;
+          bill25--;
+        } else if(bill25 > 2){
+          bill25 -= 3;
+        } else {
+          return "NO"
+        }
+        break;
+    }
+
+  }
+    return "YES"
+}
+
