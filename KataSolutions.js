@@ -169,3 +169,33 @@ function tickets(peopleInLine){
     return "YES"
 }
 
+// 4 kyu Sum Strings as Numbers/Solution//
+//https://www.codewars.com/kata/5324945e2ece5e1f32000370//
+
+function sumStrings(a,b) { 
+  let sumStr = '';
+  let biggerNum = a.length > b.length ? a : b;
+  let smallerNum = a.length > b.length ? b : a;
+  let diff = biggerNum.length - smallerNum.length;
+  smallerNum = '0'.repeat(diff) + smallerNum;
+  let addition = 0;
+  for(let i = biggerNum.length - 1; i >= 0; i--){
+    let digit1 = biggerNum[i];
+    let digit2 = smallerNum[i];
+    let sum = Number(digit1) + Number(digit2) + addition;
+    if(sum > 9){
+      addition = 1;
+      if(sum === 10){
+        sum = '0';
+      } else {
+       sum = sum - 10;
+      }
+    } else {
+      addition = 0;
+    }
+    sumStr = sum + sumStr; 
+  }
+  let result = addition === 1 ? addition + sumStr : sumStr;
+  return result[0] === '0' ? result.substring(1) : result;
+  }
+  
