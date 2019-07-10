@@ -198,4 +198,3 @@ function sumStrings(a,b) {
   let result = addition === 1 ? addition + sumStr : sumStr;
   return result[0] === '0' ? result.substring(1) : result;
   }
-  
