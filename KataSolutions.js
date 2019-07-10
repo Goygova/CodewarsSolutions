@@ -44,8 +44,8 @@ for(let i = 0; i < array1.length; i++){
 return score < 0 ? 0 : score;
 }
 
-//8 kyu Switch it Up!/Solution//
-//https://www.codewars.com/kata/5808dcb8f0ed42ae34000031//
+//8 kyu Switch it Up!/Solution
+//https://www.codewars.com/kata/5808dcb8f0ed42ae34000031
 
 function switchItUp(number){
   switch(number){
@@ -62,8 +62,8 @@ function switchItUp(number){
   }
 }
 
-//7 kyu Get list sum recursively//
-//https://www.codewars.com/kata/57a84137cf1fa5f9f80000d6//
+//7 kyu Get list sum recursively
+//https://www.codewars.com/kata/57a84137cf1fa5f9f80000d6
 
 function sumR(x) {
   if(x.length === 0){
@@ -73,15 +73,15 @@ function sumR(x) {
   }
 
   
-// 7 kyu Discover The Original Price/Solution//
-//https://www.codewars.com/kata/discover-the-original-price/javascript//
+// 7 kyu Discover The Original Price/Solution
+//https://www.codewars.com/kata/discover-the-original-price/javascript
 
 function discoverOriginalPrice(discountedPrice, salePercentage){
   return +(discountedPrice / (1 - salePercentage / 100)).toFixed(2);
 }
 
-// 7 kyu Find the divisors!/Solution//
-//https://www.codewars.com/kata/find-the-divisors/javascript//
+// 7 kyu Find the divisors!/Solution
+//https://www.codewars.com/kata/find-the-divisors/javascript
 
 function divisors(integer) {
   let arr = [];
@@ -113,8 +113,8 @@ let degreeInMin = totalDegrees / totalMin // 6
 return Math.abs(a * degreesInHour - b * degreeInMin);
 }
 
-//6 kyu Find The Parity Outlier/ Solution//
-//https://www.codewars.com/kata/5526fc09a1bbd946250002dc//
+//6 kyu Find The Parity Outlier/ Solution
+//https://www.codewars.com/kata/5526fc09a1bbd946250002dc
 
 function findOutlier(integers){
   let oddCount = 0;
@@ -133,8 +133,8 @@ function findOutlier(integers){
    return oddCount > evenCount ? evenNum : oddNum;
 }
 
-//6 kyu Vasya - Clerk/ Solution//
-//https://www.codewars.com/kata/555615a77ebc7c2c8a0000b8//
+//6 kyu Vasya - Clerk/ Solution
+//https://www.codewars.com/kata/555615a77ebc7c2c8a0000b8
 
 function tickets(peopleInLine){
   let bill25 = 0;
@@ -169,8 +169,8 @@ function tickets(peopleInLine){
     return "YES"
 }
 
-// 4 kyu Sum Strings as Numbers/Solution//
-//https://www.codewars.com/kata/5324945e2ece5e1f32000370//
+// 4 kyu Sum Strings as Numbers/Solution
+//https://www.codewars.com/kata/5324945e2ece5e1f32000370
 
 function sumStrings(a,b) { 
   let sumStr = '';
@@ -198,3 +198,21 @@ function sumStrings(a,b) {
   let result = addition === 1 ? addition + sumStr : sumStr;
   return result[0] === '0' ? result.substring(1) : result;
   }
+
+  //6 kyu Numerical Palindrome #2/ Solution
+  //https://www.codewars.com/kata/58de819eb76cf778fe00005c
+
+  function palindrome(num) {
+    console.log(num)
+     if(typeof num !== 'number' || num < 0 || num % 1 != 0){
+       return 'Not valid'
+     }
+    let isPalindrome = false;
+    let numToStr = num.toString();
+    for(let i = 0; i < numToStr.length; i++){
+        if(numToStr[i] === numToStr[i+1] || numToStr[i] === numToStr[i+2]){
+          isPalindrome = true;
+        }
+      }
+    return isPalindrome;
+    }
