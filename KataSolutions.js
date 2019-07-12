@@ -29,8 +29,8 @@ function arraysSimilar(arr1, arr2) {
 
   /* 8 kyu Check the exam/ Solution
   https://www.codewars.com/kata/check-the-exam/javascript */
-  
-  function checkExam(array1, array2) {
+
+function checkExam(array1, array2) {
 let score = 0;
 for(let i = 0; i < array1.length; i++){
   if(array1[i] === array2[i]){
@@ -197,16 +197,16 @@ function sumStrings(a,b) {
   }
   let result = addition === 1 ? addition + sumStr : sumStr;
   return result[0] === '0' ? result.substring(1) : result;
-  }
+}
 
-  //6 kyu Numerical Palindrome #2/ Solution
-  //https://www.codewars.com/kata/58de819eb76cf778fe00005c
+/* 6 kyu Numerical Palindrome #2/ Solution
+https://www.codewars.com/kata/58de819eb76cf778fe00005c */
 
-  function palindrome(num) {
-    console.log(num)
-     if(typeof num !== 'number' || num < 0 || num % 1 != 0){
-       return 'Not valid'
-     }
+
+function palindrome(num) {
+    if(typeof num !== 'number' || num < 0 || num % 1 != 0){
+      return 'Not valid'
+    }
     let isPalindrome = false;
     let numToStr = num.toString();
     for(let i = 0; i < numToStr.length; i++){
@@ -217,8 +217,8 @@ function sumStrings(a,b) {
     return isPalindrome;
     }
 
-  // 8 kyu Sum of differences in array/ Solution
-  //https://www.codewars.com/kata/5b73fe9fb3d9776fbf00009e
+// 8 kyu Sum of differences in array/ Solution
+//https://www.codewars.com/kata/5b73fe9fb3d9776fbf00009e
 
   function sumOfDifferences(arr) {
     let sortArr = arr.sort((a, b) => b - a);
@@ -227,24 +227,142 @@ function sumStrings(a,b) {
       sum += arr[i] - arr[i + 1];
     }
     return sum;
+  }
+
+//8 kyu Removing Elements/ Solution
+//https://www.codewars.com/kata/5769b3802ae6f8e4890009d2
+
+function removeEveryOther(arr){
+  return arr.filter((el, index) => index % 2 === 0);
+  }
+
+//8 kyu Add Length/ Solution
+//https://www.codewars.com/kata/559d2284b5bb6799e9000047
+
+function addLength(str) {
+  let arr = [];
+  let arr2 = str.split(' ');
+  for(let i = 0; i < arr2.length; i++){
+    arr.push(arr2[i] + ' ' + arr2[i].length);
+  }
+    return arr;
+};
+
+//6 kyy Title Case/Solution
+//https://www.codewars.com/kata/5202ef17a402dd033c000009
+
+function titleCase(title, minorWords) {
+  if(!minorWords){
+    minorWords = '';
+  }
+  if(title === ''){
+    return '';
+  }
+  let newArr = [];
+  let titleArr = title.split(' ').map(word => word.toLowerCase());
+  let minorWordsArr = minorWords.split(' ').map(word => word.toLowerCase());
+  newArr.push(titleArr[0][0].toUpperCase() + titleArr[0].slice(1));
+  for(let i = 1; i < titleArr.length; i++){
+    if(minorWordsArr.includes(titleArr[i])){
+      newArr.push(titleArr[i]);
+     } else {
+        newArr.push(titleArr[i][0].toUpperCase() + titleArr[i].slice(1));
+        }
     }
+      return newArr.join(' ');
+}
 
-    //8 kyu Removing Elements/ Solution
-    //https://www.codewars.com/kata/5769b3802ae6f8e4890009d2
+//7 kyu Remove the minimum// Solution
+//https://www.codewars.com/kata/563cf89eb4747c5fb100001b
 
-    function removeEveryOther(arr){
-      return arr.filter((el, index) => index % 2 === 0);
+function removeSmallest(numbers) {
+  let numbers2 = [...numbers]
+  let numbersCopy = [...numbers];
+  numbers2.sort((a, b) => a - b);
+  let removeInd = numbersCopy.indexOf(numbers2[0]);
+  numbersCopy.splice(removeInd, 1);
+  return numbersCopy;
+}
+
+//6 kyu Alphabetized/ Solution
+//https://www.codewars.com/kata/5970df092ef474680a0000c9
+function alphabetized(s) {
+  s = s.replace(/[^A-Z]/ig, "");
+  s = s.split("");
+  s = s.map((a, i) => [a, i]);
+  s = s.sort((a, b) => a[0].toLowerCase().charCodeAt(0) > b[0].toLowerCase().charCodeAt(0) ? 1 : a[0].toLowerCase().charCodeAt(0) < b[0].toLowerCase().charCodeAt(0) ? -1 : a[1] - b[1]);
+    return s.map(a => a[0]).join("");
+}
+
+//7 kyu Jaden Casing Strings
+//https://www.codewars.com/kata/5390bac347d09b7da40006f6
+
+String.prototype.toJadenCase = function () {
+  let newStr = this.split(' ');
+  let newArr = [];
+  for(let i = 0; i < newStr.length; i++){
+    newArr.push(newStr[i][0].toUpperCase() + newStr[i].substring(1));
+  }
+  return newArr.join(' ');
+  };
+
+//6 kyu Find the odd int
+//https://www.codewars.com/kata/54da5a58ea159efa38000836
+
+function findOdd(A) {
+  let obj = {};
+  A.forEach(el => obj[el] ? obj[el]++ : obj[el] = 1);
+  console.log(obj);
+  for(prop in obj){
+    if(obj[prop] % 2 !== 0) return Number(prop);
+  }
+}
+
+//6 kyu Smallest Difference
+//https://www.codewars.com/kata/585de79128bc74912d0001c5
+
+function smallestDiff(arr1, arr2) {
+  if(arr1.length === 0 && arr2.length === 0){
+    return -1;
+  }
+  if(arr1.length === 0 || arr2.length === 0){
+    return Math.min(...arr1) > Math.min(...arr2) ? Math.min(...arr2) : Math.min(...arr1);
+  }
+  let sortArr1 = arr1.sort((a,b) => a - b);
+  let sortArr2 = arr2.sort((a,b) => a - b);
+  let i = 0;
+  let j = 0;
+  let minDiff = Infinity;
+  while(i < sortArr1.length && j < sortArr2.length){
+    let diff = Math.abs(sortArr1[i] - sortArr2[j]);
+    if(diff < minDiff){
+      minDiff = diff;
     }
+    if(sortArr1[i] < sortArr2[j]){
+      i++;
+    } else {
+      j++;
+    }
+  }
+  return minDiff;
+}
 
-    //8 kyu Add Length/ Solution
-    //https://www.codewars.com/kata/559d2284b5bb6799e9000047
-
-    function addLength(str) {
-      let arr = [];
-      let arr2 = str.split(' ');
-      for(let i = 0; i < arr2.length; i++){
-        arr.push(arr2[i] + ' ' + arr2[i].length);
-      }
-      return arr;
-      }
-      
+//7 kyu Check three and two
+//https://www.codewars.com/kata/5a9e86705ee396d6be000091
+function checkThreeAndTwo(array) {
+  let newArr = [];
+    let amountOfA = 0;
+    let amountOfB = 0;
+    let amountOfC = 0;
+    for(let i = 0; i < array.length; i++){
+      if(array[i] === 'a'){
+        amountOfA++;
+      } else if(array[i] === 'b'){
+        amountOfB++;
+      } else {
+        amountOfC++;
+      }  
+    }
+    newArr.push(amountOfA, amountOfB, amountOfC);
+    return newArr.includes(3) && newArr.includes(2);
+  }

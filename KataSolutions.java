@@ -107,5 +107,34 @@ public class Kata {
     } 
 }
 
+//Solution for interview task
+//find sum of smallest 2 numbers
+
+int [] arr1 = {-5, -100, -10};
+int firstBig1 = Integer.MIN_VALUE;
+int secondBig1 = Integer.MIN_VALUE;
+for(int i = 0; i < arr1.length; i++){
+  if(firstBig1 < arr1[i]){
+    secondBig1 = firstBig1;
+    firstBig1 = arr1[i];
+  } else if (secondBig1 < arr1[i]){
+      secondBig1 = arr1[i];
+    }
+  }
+System.out.println(firstBig1 +secondBig1);
 
 
+int[] arr = {100, -5, -5, 0};
+int firstBig = Integer.MIN_VALUE;
+int secondBig = Integer.MIN_VALUE;
+  for(int i = 0; i < arr.length; i++){
+    if(arr[i] > firstBig || arr[i] > secondBig){
+    if(arr[i] - firstBig < arr[i] -  secondBig){
+      secondBig = arr[i];
+    } else {
+        firstBig = arr[i];
+      }
+    }
+
+  }
+System.out.println(firstBig + secondBig);
