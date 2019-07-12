@@ -216,3 +216,35 @@ function sumStrings(a,b) {
       }
     return isPalindrome;
     }
+
+  // 8 kyu Sum of differences in array/ Solution
+  //https://www.codewars.com/kata/5b73fe9fb3d9776fbf00009e
+
+  function sumOfDifferences(arr) {
+    let sortArr = arr.sort((a, b) => b - a);
+    let sum = 0;
+    for(let i = 0; i < sortArr.length - 1; i++){
+      sum += arr[i] - arr[i + 1];
+    }
+    return sum;
+    }
+
+    //8 kyu Removing Elements/ Solution
+    //https://www.codewars.com/kata/5769b3802ae6f8e4890009d2
+
+    function removeEveryOther(arr){
+      return arr.filter((el, index) => index % 2 === 0);
+    }
+
+    //8 kyu Add Length/ Solution
+    //https://www.codewars.com/kata/559d2284b5bb6799e9000047
+
+    function addLength(str) {
+      let arr = [];
+      let arr2 = str.split(' ');
+      for(let i = 0; i < arr2.length; i++){
+        arr.push(arr2[i] + ' ' + arr2[i].length);
+      }
+      return arr;
+      }
+      
