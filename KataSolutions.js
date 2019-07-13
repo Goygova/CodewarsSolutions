@@ -366,3 +366,16 @@ function checkThreeAndTwo(array) {
     newArr.push(amountOfA, amountOfB, amountOfC);
     return newArr.includes(3) && newArr.includes(2);
   }
+
+//6 kyu CamelCase Method
+//https://www.codewars.com/kata/587731fda577b3d1b0001196/solutions/javascript
+
+String.prototype.camelCase=function(){
+  if(this == ""){
+    return "";
+  }
+  let str = this.trim();
+  let newStrArr = str.split(' ');
+    return newStrArr.map(word => word[0].toUpperCase() + word.substring(1)).join('');
+  }
+  
