@@ -411,3 +411,20 @@ function infiniteLoop(arr,d,n){
   }
   return arr;
   }
+  
+//6 kyu I love big nums and I cannot lie/Solution
+//https://www.codewars.com/kata/56121f3312baa28c8500005b
+function biggest(nums) {
+  nums = nums.map(el => el > 0 ? el.toString() : '')
+  nums = nums.sort((a, b) => (b + a) - (a + b)).join('')
+  return nums.length > 0 ? nums : '0';
+};
+
+//6 kyu Sort odd and even numbers in different order/Solution
+//https://www.codewars.com/kata/5a1cb5406975987dd9000028
+function sortArray(array) {
+  let arrEven = array.filter(el => el % 2 === 0).sort((a, b) => b - a);
+  let arrOdd = array.filter(el => el % 2).sort((a, b) => a - b);
+  let a2 = array.map(el => el % 2 ? arrOdd.shift() : arrEven.shift())
+  return a2;
+  }
