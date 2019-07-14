@@ -378,4 +378,36 @@ String.prototype.camelCase=function(){
   let newStrArr = str.split(' ');
     return newStrArr.map(word => word[0].toUpperCase() + word.substring(1)).join('');
   }
-  
+
+// 7 kyu Ordered Count of Characters/Solution
+//https://www.codewars.com/kata/57a6633153ba33189e000074
+  var orderedCount = function (text) {
+    let obj = new Map();
+    text = text.split('');
+    text.forEach(el => obj.get(el) ? obj.set(el, obj.get(el) + 1) : obj.set(el, 1));
+    let result = Array.from(obj.entries());
+      return result;
+  }
+
+//7 kyu 99 Problems, #1: last in list/Solution
+//https://www.codewars.com/kata/57d86d3d3c3f961278000005
+
+const last = xs => xs.length === 0 ? null : xs[xs.length - 1];
+    
+//7 kyu Training JS #23: methods of arrayObject---push(), pop(), shift() and unshift()
+//https://www.codewars.com/kata/572af273a3af3836660014a1
+function infiniteLoop(arr,d,n){
+  for (let i = 1; i <= n; i++){
+    if (d === "left"){
+      arr[2].push(arr[0].shift());
+      arr[1].push(arr[2].shift());
+      arr[0].push(arr[1].shift());
+    }
+    if (d === "right"){
+      arr[0].unshift(arr[2].pop());
+      arr[1].unshift(arr[0].pop());
+      arr[2].unshift(arr[1].pop());
+    }
+  }
+  return arr;
+  }
