@@ -429,33 +429,91 @@ function sortArray(array) {
   return a2;
   }
 
+  //7 kyu Maximum Gap (Array Series #4)/ Solution
+  //https://www.codewars.com/kata/5a7893ef0025e9eb50000013
 
-  function validBraces(braces){
-    let newArr = [];
-    for(let i = 0; i < braces.length; i++){
-      if(braces[i] === '('){
-        newArr.push(')');
-      } else {
-        if(!newArr.includes(')')){
-          return false;
-        }
-      }
-      if(braces[i] === '{'){
-        newArr.push('}');
-      }else{
-        if(!newArr.includes('}')){
-          return false;
-        }
-      }
-      if(braces[i] === '['){
-        newArr.push(']');
-      } else {
-        if(!newArr.includes(']')){
-          return false;
-        }
+  function maxGap (numbers){
+    let newNumbers = numbers.sort((a, b) => b - a);
+    let maxGap = 0;
+    for(let i = 0; i < newNumbers.length - 1; i++){
+      let difference = newNumbers[i] - newNumbers[i+1];
+      if(difference > maxGap){
+        maxGap = difference;
       }
     }
-    return true;
+    return maxGap;
   }
-
-  validBraces("()");
+//8 kyu Bin to Decimal/Solution
+//https://www.codewars.com/kata/57a5c31ce298a7e6b7000334
+function binToDec(bin){
+  let decimal = parseInt(bin, 2);
+    return decimal;
+  }
+//8 kyu Grasshopper - Messi goals function/ Solution
+//https://www.codewars.com/kata/55f73be6e12baaa5900000d4
+function goals (laLigaGoals, copaDelReyGoals, championsLeagueGoals) {
+  return laLigaGoals + copaDelReyGoals + championsLeagueGoals;
+}
+//6 kyyu Valid Braces/Solution
+//https://www.codewars.com/kata/5277c8a221e209d3f6000b56
+function validBraces(braces){
+  let stack = [];
+  let strEx = '({[';
+  let strEx2 = ')}]';
+  braces = braces.split('');
+  braces = braces.map(el=> {
+      if (strEx.indexOf(el) >= 0) {
+        stack.push(el);
+        return true;
+      } else {
+        let rem = stack.pop();
+        return strEx.indexOf(rem) == strEx2.indexOf(el);
+      }
+    });
+  braces = braces.every(el => el) && stack.length == 0;
+  return braces;
+  }
+//7 kyu Simple Fun #152: Invite More Women?/Solution
+//https://www.codewars.com/kata/58acfe4ae0201e1708000075
+function inviteMoreWomen(L) {
+  let menCount = 0;
+  let womenCount = 0;
+  L.forEach(el => el > 0 ? menCount++ : womenCount++);
+  return womenCount < menCount;
+  }
+//8 kyu Closest elevator/Solution
+//https://www.codewars.com/kata/5c374b346a5d0f77af500a5a
+function elevator(left, right, call){
+  return Math.abs((call - left)) < Math.abs((call - right)) ? "left" : "right";
+}
+//8 kyu Filter out the geese/ Solution
+//https://www.codewars.com/kata/57ee4a67108d3fd9eb0000e7
+function gooseFilter (birds) {
+  var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+  let newArr = birds.filter(word => !geese.includes(word));
+  return newArr;
+};
+//8 kyu Is there a vowel in there?/Solution
+//https://www.codewars.com/kata/57cff961eca260b71900008f
+function isVow(a){
+  let newArr = [];
+  let arrVow = ['a', 'e', 'i', 'o', 'u'];
+  arrVow = arrVow.map(function(letter){
+  return letter.charCodeAt(0)});
+  for(let i = 0; i < a.length; i++){
+    if(arrVow.includes(a[i])){
+      newArr.push(String.fromCharCode(a[i]));
+    } else {
+      newArr.push(a[i]);
+    }
+  } 
+  return newArr;
+}
+//7 kyu Sort Out The Men From Boys/Solution
+//https://www.codewars.com/kata/5af15a37de4c7f223e00012d
+function menFromBoys(arr){
+  arr = arr.filter((el, index) => arr.indexOf(el) === index);
+  let evenArr = arr.filter(num => num % 2 === 0).sort((a, b) => a - b);
+  let oddArr = arr.filter(num => num % 2).sort((a, b) => b - a);
+  return evenArr.concat(oddArr);
+  }
