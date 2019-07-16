@@ -411,7 +411,7 @@ function infiniteLoop(arr,d,n){
   }
   return arr;
   }
-  
+
 //6 kyu I love big nums and I cannot lie/Solution
 //https://www.codewars.com/kata/56121f3312baa28c8500005b
 function biggest(nums) {
@@ -428,3 +428,34 @@ function sortArray(array) {
   let a2 = array.map(el => el % 2 ? arrOdd.shift() : arrEven.shift())
   return a2;
   }
+
+
+  function validBraces(braces){
+    let newArr = [];
+    for(let i = 0; i < braces.length; i++){
+      if(braces[i] === '('){
+        newArr.push(')');
+      } else {
+        if(!newArr.includes(')')){
+          return false;
+        }
+      }
+      if(braces[i] === '{'){
+        newArr.push('}');
+      }else{
+        if(!newArr.includes('}')){
+          return false;
+        }
+      }
+      if(braces[i] === '['){
+        newArr.push(']');
+      } else {
+        if(!newArr.includes(']')){
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  validBraces("()");
