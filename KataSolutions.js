@@ -517,3 +517,83 @@ function menFromBoys(arr){
   let oddArr = arr.filter(num => num % 2).sort((a, b) => b - a);
   return evenArr.concat(oddArr);
   }
+//7 kyu Interweaving strings and removing digits/Solution
+//https://www.codewars.com/kata/588a7d45019c42be61000009
+function interweave(s1, s2) {
+  s1=s1.split('');
+  s2=s2.split('');
+  let s3 = s1.concat(s2)
+  let newArr=[];
+  for(let i = 0; i < s3.length; i++){
+    if(i%2 === 0){
+      newArr.push(s1.shift());
+    } else {
+      newArr.push(s2.shift());
+    }
+  }
+ return newArr.filter(el => !Number(el) && el != "0").join('');
+}
+//7 kyu The Office II - Boredom Score/Solution
+//https://www.codewars.com/kata/57ed4cef7b45ef8774000014
+
+function boredom(staff){
+  let obj = {
+  accounts: 1,
+  finance: 2,
+ canteen: 10, 
+ regulation: 3, 
+ trading: 6, 
+ change: 6,
+ IS: 8,
+ retail: 5,
+ cleaning: 4,
+ "pissing about":25,
+  };
+ let sum = Object.values(staff).map(el => obj[el]).reduce((a, b) => a + b);
+ if(sum >= 100){
+   return "party time!!";
+ } else if (sum < 100 && sum > 80){
+   return 'i can handle this';
+ } else {
+  return 'kill me now';
+ }
+ }
+ //7 kyu The Office I - Outed/Solution
+ //https://www.codewars.com/kata/57ecf6efc7fe13eb070000e1
+ function outed(meet, boss){
+  let num = Object.values(meet);
+  num.push(meet[boss]);
+  let amount = Object.keys(meet).length;
+  let sum = num.reduce((acc, curr) => acc + curr, 0);
+  return sum / amount <= 5 ? 'Get Out Now!' : 'Nice Work Champ!';
+  }
+//8 kyu Welcome!/Solution
+//https://www.codewars.com/kata/577ff15ad648a14b780000e7
+function greet(language) {
+	let obj = {
+english: 'Welcome',
+czech: 'Vitejte',
+danish: 'Velkomst',
+dutch: 'Welkom',
+estonian: 'Tere tulemast',
+finnish: 'Tervetuloa',
+flemish: 'Welgekomen',
+french: 'Bienvenue',
+german: 'Willkommen',
+irish: 'Failte',
+italian: 'Benvenuto',
+latvian: 'Gaidits',
+lithuanian: 'Laukiamas',
+polish: 'Witamy',
+spanish: 'Bienvenido',
+swedish: 'Valkommen',
+welsh: 'Croeso'
+  }
+  return obj[language] ? obj[language] : "Welcome";
+}
+//7 kyu Last/Solution
+//https://www.codewars.com/kata/541629460b198da04e000bb9
+function last(list){
+  let lastEl= arguments[arguments.length - 1];
+  return lastEl.length > 1 ? lastEl[lastEl.length - 1] : lastEl;
+ }
