@@ -597,3 +597,45 @@ function last(list){
   let lastEl= arguments[arguments.length - 1];
   return lastEl.length > 1 ? lastEl[lastEl.length - 1] : lastEl;
  }
+
+ //7 kyu Form The Minimum/ Solution
+ //https://www.codewars.com/kata/5ac6932b2f317b96980000ca
+ function minValue(values){
+  let newSet = new Set(values);
+  newSet = [...newSet];
+  let result = newSet.map(el => el.toString()).sort((a, b) => (a + b) - (b + a)).join('');
+  return Number(result);
+}
+//7 kyu Jumping Number (Special Numbers Series #4)/Solution
+//https://www.codewars.com/kata/5a54e796b3bfa8932c0000ed
+function jumpingNumber(n){
+  if(n < 10){
+    return "Jumping!!";
+  }
+  let isJumping = "";
+  let nStr = n.toString();
+  for(let i = 0; i < nStr.length - 1; i++){
+  let numI = Number(nStr[i]);
+  let nextNumI = Number(nStr[i+1]);
+    if(Math.abs(numI - nextNumI) === 1) {
+      isJumping ="Jumping!!" ;
+    } else {
+      isJumping = "Not!!";
+      break;
+    }
+  }
+  return isJumping;
+}
+//7 kyu Tidy Number (Special Numbers Series #9)/Solution
+//https://www.codewars.com/kata/5a87449ab1710171300000fd
+function tidyNumber(n){
+  n = n.toString();
+  let isTidyNum = true;
+  for(let i = 0; i < n.length - 1; i++){
+    if(Number(n[i+1]) < Number(n[i])){
+      isTidyNum = false;
+      break;
+    }
+  }
+  return isTidyNum;
+}
