@@ -639,3 +639,19 @@ function tidyNumber(n){
   }
   return isTidyNum;
 }
+// 7 kyu Row Weights/Solution
+//https://www.codewars.com/kata/5abd66a5ccfd1130b30000a9
+function rowWeights(array){
+  let team1 = [];
+  let team2 = [];
+  for(let i = 0; i < array.length; i++){
+   if(i % 2 === 0){
+     team1.push(array[i]);
+   } else {
+     team2.push(array[i]);
+   }
+  }
+  team1 = team1.reduce((a, b) => a + b, 0);
+  team2 = team2.reduce((a, b) => a + b, 0);
+  return [team1, team2]
+}
