@@ -655,3 +655,43 @@ function rowWeights(array){
   team2 = team2.reduce((a, b) => a + b, 0);
   return [team1, team2]
 }
+
+//7 kyu Sum of a Beach
+//https://www.codewars.com/kata/5b37a50642b27ebf2e000010
+function sumOfABeach(beach) {
+  beach = beach.toLowerCase();
+  let counter = 0;
+  counter+=(beach.match(/sand/g) || []).length;
+  counter+=(beach.match(/water/g) || []).length;
+  counter+=(beach.match(/fish/g) || []).length;
+  counter+=(beach.match(/sun/g) || []).length;
+  return counter;
+}
+//7 kyu Form The Largest
+//https://www.codewars.com/kata/5a4ea304b3bfa89a9900008e
+function maxNumber(n){
+  n = n.toString();
+  n = n.split('');
+  n = n.sort((a, b) => (b + a) - (a + b)).join('');
+  return Number(n);
+}
+//6 kyu Transform To Prime
+//https://www.codewars.com/kata/5a946d9fba1bb5135100007c
+
+function minimumNumber(numbers){
+  let sum = numbers.reduce((a, b) => a + b);
+  let newSum = sum;
+  while(isPrime(newSum) === false){
+    newSum++;
+  }
+  return newSum - sum;
+}
+
+function isPrime(num){
+    for(let i = 2; i < num; i++){
+      if(num % i === 0){
+        return false;
+      }
+    }
+    return true;
+  }

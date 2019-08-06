@@ -135,6 +135,92 @@ int secondBig = Integer.MIN_VALUE;
         firstBig = arr[i];
       }
     }
-
   }
 System.out.println(firstBig + secondBig);
+
+// 8 kyu Playing with cubes I
+//https://www.codewars.com/kata/55c0a79e20be94c91400014b
+
+public class Cube{
+  int side;
+  
+  int getSide(){
+    return side;
+  }
+  
+  void setSide(int num){
+    side = num;
+  }
+}
+//7 kyu Lombok Encapsulation
+//https://www.codewars.com/kata/5a03295680171ffd7b0000c7
+
+public class EncapsulationDemo{
+  private int number;
+  private String stringValue;
+  private Object anObject;
+  
+  public int getNumber() {
+    return number;
+  }
+  
+  public void setNumber(int number){
+    this.number = number;
+  }
+  
+  public String getStringValue(){
+    return stringValue;
+  }
+  
+  public void setStringValue(String stringValue){
+    this.stringValue = stringValue;
+  }
+  
+  public Object getAnObject(){
+    return anObject;
+  }
+  
+ public void setAnObject(Object anObject) {
+   this.anObject = anObject;
+  }
+  
+  public EncapsulationDemo(){
+  }
+  
+  public EncapsulationDemo(int number, String stringValue, Object anObject) {
+    this.number = number;
+    this.stringValue = stringValue;
+    this.anObject = anObject;
+  }
+}
+//7 kyu Building blocks
+//https://www.codewars.com/kata/55b75fcf67e558d3750000a3
+
+public class Block{
+	private int width;
+  private int length;
+  private int height;
+  
+  public int getWidth(){
+    return width;
+  }
+  
+  public int getLength(){
+    return length;
+  }
+  
+  public int getHeight(){
+    return height;
+  }
+  public Block (int[] arr){
+    this.width = arr[0];
+    this.length = arr[1];
+    this.height = arr[2];
+  }
+  public int getVolume(){
+    return width * length * height;
+  }
+  public int getSurfaceArea(){
+    return 2 * (width * length + width * height + length * height);
+  }  
+}
