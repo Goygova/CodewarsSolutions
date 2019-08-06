@@ -695,3 +695,21 @@ function isPrime(num){
     }
     return true;
   }
+//7 kyu Recursion #1 - Factorial
+//https://www.codewars.com/kata/5694cb0ec554589633000036
+const factorial = n => {
+  if(n >= 1){
+   return n * factorial(n-1);
+ } else {
+   return 1;
+ }
+};
+//Recursion #2 - Fibonacci
+//https://www.codewars.com/kata/569512b7707bc1b88200002f
+const fibonacci = n => {
+  if(n >= 3){
+    return fibonacci(n - 1) + fibonacci(n - 2);
+  } else {
+    return 1;
+  }
+};
