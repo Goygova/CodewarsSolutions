@@ -713,3 +713,33 @@ const fibonacci = n => {
     return 1;
   }
 };
+//7 kyu TIY-FizzBuzz
+//https://www.codewars.com/kata/5889177bf148eddd150002cc
+function tiyFizzBuzz(sentence){
+  if(sentence === ' '){
+    return ' ';
+  }
+    let newStr = '';
+    let dictOfCon = 'BCDFGHJKLMNPQRSTVXZWY';
+    let dictOfVowel = 'AEOUI';
+    for(let letter of sentence){
+     if(letter === letter.toUpperCase()){
+       if(dictOfCon.indexOf(letter) >= 0){
+         newStr += 'Iron';
+       }
+       if(dictOfVowel.indexOf(letter) >= 0){
+         newStr += 'Iron Yard';
+       }
+       if(dictOfCon.indexOf(letter) < 0 && dictOfVowel.indexOf(letter) < 0){
+        newStr += letter;
+      }
+      } else if(letter === letter.toLowerCase()) { 
+          if(dictOfVowel.indexOf(letter.toUpperCase()) >= 0){
+            newStr += 'Yard';
+          } else {
+            newStr += letter;
+          }
+      }
+    }
+    return newStr;
+  }
