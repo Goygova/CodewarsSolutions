@@ -743,3 +743,12 @@ function tiyFizzBuzz(sentence){
     }
     return newStr;
   }
+//7 kyu Anagram Detection
+//https://www.codewars.com/kata/anagram-detection/javascript
+var isAnagram = function(test, original) {
+  return helper(test) === helper(original);
+};
+
+function helper(str){
+  return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+}
