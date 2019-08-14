@@ -752,3 +752,27 @@ var isAnagram = function(test, original) {
 function helper(str){
   return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
 }
+//7 kyu Alternate capitalization
+//https://www.codewars.com/kata/59cfc000aeb2844d16000075
+function capitalize(s){
+  let resultArr = [];
+  let oddStr = '';
+  let evenStr = '';
+  
+  for(let i = 0; i < s.length; i++){
+    if(i % 2 === 0){
+      evenStr += s[i].toUpperCase();
+    } else {
+     evenStr += s[i];
+    }
+  }
+  
+  for(let i = 0; i < s.length; i++){
+    if(i % 2 === 1){
+      oddStr += s[i].toUpperCase();
+    }else {
+     oddStr += s[i];
+    }
+  }
+  return [evenStr, oddStr]
+  };
