@@ -755,7 +755,6 @@ function helper(str){
 //7 kyu Alternate capitalization
 //https://www.codewars.com/kata/59cfc000aeb2844d16000075
 function capitalize(s){
-  let resultArr = [];
   let oddStr = '';
   let evenStr = '';
   
