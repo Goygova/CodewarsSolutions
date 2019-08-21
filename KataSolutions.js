@@ -780,3 +780,20 @@ function capitalize(s){
 function sumPPG(playerOne, playerTwo){
   return playerOne.ppg + playerTwo.ppg
 }
+//solution for Stairs interview task
+//recursion
+function printStairs(n, row = 0, stair = ''){
+  if(n === row){
+    return;
+  }
+  if(n === stair.length){
+    console.log(stair);
+    return printStairs(n, row + 1)
+  }
+  if(stair.length <= row){
+    stair += '#';
+  } else {
+    stair += ' ';
+  }
+  printStairs(n, row, stair);
+}
