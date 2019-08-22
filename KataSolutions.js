@@ -797,3 +797,27 @@ function printStairs(n, row = 0, stair = ''){
   }
   printStairs(n, row, stair);
 }
+//7 kyu Covfefe
+//https://www.codewars.com/kata/592fd8f752ee71ac7e00008a
+function covfefe(str){
+  let word = 'covfefe';
+  if(str.includes('coverage')){
+    return str.replace(/coverage/g,word);
+  } else {
+    return str += ' ' + word;
+  }
+}
+//7 kyu The Poet And The Pendulum
+//https://www.codewars.com/kata/5bd776533a7e2720c40000e5
+function pendulum(values) {
+  let sortArr = values.sort((a, b) => a - b);
+  let newArr = [sortArr[0]];
+  for(let i = 1; i < sortArr.length; i++){
+    if(i % 2 === 1){
+      newArr.push(sortArr[i]);
+    } else {
+      newArr.unshift(sortArr[i]);
+    }
+  }
+  return newArr;
+}
