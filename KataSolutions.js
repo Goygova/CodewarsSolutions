@@ -889,3 +889,32 @@ function secondL(arr) {
 	}
 	return secondLargest;
 }
+//Compare strings
+let str1 = '1232';
+let str2 = '201';
+
+function largerNum(str1, str2) {
+	return str1.length > str2.length;
+}
+
+let str3 = '245';
+let str4 = '246';
+
+function largerStr(str3, str4) {
+	for (let i = 0; i < str3.length; i++) {
+		if (str3[i] == str4[i]) {
+			continue;
+		} else if (str3[i] > str4[i]) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	return false;
+}
+
+/* Questions:
+1. Could the string be empty? No
+2. Could they be negative? No
+3. Can I convert them with Number? No
+4. What if they are the same? return False */
