@@ -918,3 +918,21 @@ function largerStr(str3, str4) {
 2. Could they be negative? No
 3. Can I convert them with Number? No
 4. What if they are the same? return False */
+
+//Linear solution in task where you need to find a pair of numbers that gives 10
+
+let arr = [3, 4, 1, 2, 9];
+
+function findNum(arr) {
+	let numbersSeen = {};
+	for (num of arr) {
+		if (10 - num in numbersSeen) {
+			return (10 - num).toString() + ',' + num.toString();
+		} else {
+			numbersSeen[num] = 1;
+		}
+	}
+	return 'There is no pair';
+}
+
+console.log(findNum(arr));
