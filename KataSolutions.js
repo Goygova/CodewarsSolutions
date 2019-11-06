@@ -936,3 +936,48 @@ function findNum(arr) {
 }
 
 console.log(findNum(arr));
+
+//Spiral matrix
+
+let matrix = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]];
+
+function printSpiral(arr) {
+	let direction = 'right';
+	let length = arr[0].length * arr.length;
+	let row = 0;
+	let column = 0;
+	let dict = {};
+	for (let i = 0; i < length; i++) {
+		console.log(arr[row][column]);
+		dict[arr[row][column]] = true;
+
+		if (direction === 'right' && arr[row][column + 1] !== undefined && !dict[arr[row][column + 1]]) {
+			column++;
+		} else if (direction === 'down' && arr[row + 1] !== undefined && !dict[arr[row + 1][column]]) {
+			row++;
+		} else if (direction === 'left' && arr[row][column - 1] !== undefined && !dict[arr[row][column - 1]]) {
+			column--;
+		} else if (direction === 'up' && arr[row - 1][column] !== undefined && !dict[arr[row - 1][column]]) {
+			row--;
+		} else {
+			direction = getNextDirection(direction);
+			if (direction === 'down') {
+				row++;
+			} else if (direction === 'left') {
+				column--;
+			} else if (direction === 'up') {
+				row--;
+			} else if (direction === 'right') {
+				column++;
+			}
+		}
+	}
+}
+
+function getNextDirection(direction) {
+	let directions = ['right', 'down', 'left', 'up'];
+	let index = directions.indexOf(direction);
+	return directions[index + 1] === undefined ? directions[0] : directions[index + 1];
+}
+
+printSpiral(matrix);
