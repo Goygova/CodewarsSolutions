@@ -926,7 +926,7 @@ let arr = [3, 4, 1, 2, 9];
 function findNum(arr) {
 	let numbersSeen = {};
 	for (num of arr) {
-		if (10 - num in numbersSeen) {
+		if (numbersSeen[10 - num]) {
 			return (10 - num).toString() + ',' + num.toString();
 		} else {
 			numbersSeen[num] = 1;
@@ -939,7 +939,13 @@ console.log(findNum(arr));
 
 //Spiral matrix
 
-let matrix = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]];
+let matrix = [
+	[1, 2, 3, 4, 5],
+	[6, 7, 8, 9, 10],
+	[11, 12, 13, 14, 15],
+	[16, 17, 18, 19, 20],
+	[21, 22, 23, 24, 25]
+];
 
 function printSpiral(arr) {
 	let direction = 'right';
@@ -981,3 +987,50 @@ function getNextDirection(direction) {
 }
 
 printSpiral(matrix);
+
+//Create spiral matrix
+
+function spiralMatrix(number) {
+	let matrix = new Array(number).fill().map(() => new Array(number).fill(''));
+
+	let counter = 1;
+
+	let startRow = 0;
+	let endRow = number - 1;
+	let columnStart = 0;
+	let columnEnd = number - 1;
+
+	while (startRow <= endRow && columnStart <= columnEnd) {
+		for (let i = columnStart; i <= columnEnd; i++) {
+			matrix[startRow][i] = counter;
+			counter++;
+		}
+
+		startRow++;
+
+		for (let j = startRow; j <= endRow; j++) {
+			matrix[j][columnEnd] = counter;
+			counter++;
+		}
+
+		columnEnd--;
+
+		for (let i = columnEnd; i >= columnStart; i--) {
+			matrix[endRow][i] = counter;
+			counter++;
+		}
+
+		endRow--;
+
+		for (let i = endRow; i >= startRow; i--) {
+			matrix[i][columnStart] = counter;
+			counter++;
+		}
+
+		columnStart++;
+	}
+
+	console.log(matrix);
+}
+
+spiralMatrix(4);
